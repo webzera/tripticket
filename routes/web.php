@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/checkflight', 'Api\FlightsearchController@checkflight');
+
 // Service Name 					URL
 
 // Search Service 					https://apitest.tripjack.com/fms/v1/air-search-all
@@ -29,6 +35,4 @@ Route::get('/', function () {
 // Booking Details 					https://apitest.tripjack.com/oms/v1/booking-details
 // Release PNR(Hold) 				https://apitest.tripjack.com/oms/v1/air/unhold
 // Seat Service 					https://apitest.tripjack.com/fms/v1/seat
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
